@@ -5,3 +5,5 @@ sentencepiece != 0.1.92
 protobuf
 evaluate
 scikit-learn
+git+https://github.com/huggingface/transformers.git
+gradio
