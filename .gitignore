@@ -1,2 +1,7 @@
 checkpoint-*
 *cpython-*
+log_dir_*
+deep-learning-models/*
+deep-learning-models.zip
+.ipynb_checkpoints/*
+flagged/*

@@ -7,3 +7,17 @@ evaluate
 scikit-learn
 git+https://github.com/huggingface/transformers.git
 gradio
+sentence-transformers
+datasets
+git+https://github.com/ARBML/tkseem.git
+tnkeeh
+pyarabic
+git+https://www.github.com/keras-team/keras-contrib.git
+diacritization-evaluation==0.5
+ruamel.yaml==0.16.12
+pyarabic
+git+https://github.com/MagedSaeed/Bohour.git
+gdown==4.6.0
+termcolor
+tensorflow
+matplotlib
