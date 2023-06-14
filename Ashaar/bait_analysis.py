@@ -40,13 +40,12 @@ empty_analysis = {
 
 
 class BaitAnalysis:
-    def __init__(self, use_cbhg=True, config_yml = "Ashaar/config/test.yml",
-     pretrained_model= "Arabic_Diacritization/log_dir_ashaar"):
+    def __init__(self, abs_path = '.', use_cbhg=True):
+        config_yml = f"{abs_path}/Ashaar/config/test.yml"
 
         self.BOHOUR_PATTERNS = {}
         self.BOHOUR_TAFEELAT = {}
-        # abs_path = "/content/qawafi/qawafi_server"
-        abs_path = "."
+
         for bahr_class in bohour.bohours_list:
             bahr = bahr_class()
             self.BOHOUR_PATTERNS[
@@ -56,17 +55,19 @@ class BaitAnalysis:
                 bahr_class.__name__.lower()
             ] = bahr.get_all_shatr_combinations(as_str_list=True)
         self.use_cbhg = use_cbhg
-        if self.use_cbhg:
-            print("load diacritization model ... ")
-
-            self.diac_model = DiacritizationTester(config_path = config_yml, model_kind = "cbhg",  model_path=pretrained_model)
-            self.text_encoder = self.diac_model.text_encoder
         
         print("Exporting the pretrained models ... ")
-        url = "https://drive.google.com/uc?id=1P8t7wfjxgLSSdVA9fZ5UYHq9iQ6bkz9G"
+        url = "https://drive.google.com/uc?id=1zHuxG2hlo9JSi0xKIcU4Cv5fSM7fmG5r"
         gdown.cached_download(
             url, "deep-learning-models.zip", quiet=False, postprocess=gdown.extractall
         )
+
+        if self.use_cbhg:
+            print("load diacritization model ... ")
+
+            self.diac_model = DiacritizationTester(config_path = config_yml, model_kind = "cbhg",  model_path=f"{abs_path}/deep-learning-models/log_dir_ashaar/ashaar_proc.base.cbhg/models/10000-snapshot.pt")
+            self.text_encoder = self.diac_model.text_encoder
+        
 
         print("load meter classification model ...")
         self.METERS_MODEL = create_transformer_model()

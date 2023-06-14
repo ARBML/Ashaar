@@ -37,8 +37,7 @@ token_to_theme = {t:m for m,t in theme_to_token.items()}
 meter_to_token = json.load(open("extra/meter_tokens.json", "r"))
 token_to_meter = {t:m for m,t in meter_to_token.items()}
 
-analysis = BaitAnalysis(config_yml = "/home/g201080740/Ashaar/Ashaar/config/test.yml", 
-                        pretrained_model= "/home/g201080740/Arabic_Diacritization/log_dir_ashaar")
+analysis = BaitAnalysis()
 meter, theme, qafiyah = "", "", ""
 
 def analyze(poem):

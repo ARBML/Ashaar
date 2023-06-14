@@ -5,3 +5,4 @@ deep-learning-models/*
 deep-learning-models.zip
 .ipynb_checkpoints/*
 flagged/*
+__MACOSX/*
