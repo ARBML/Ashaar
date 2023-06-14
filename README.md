@@ -1,6 +1,7 @@
 ## Ashaar
 
-Arabic poetry analysis generation and analysis. 
+Arabic poetry analysis and generation. 
+
 <p align = 'center'>
 <img src='https://raw.githubusercontent.com/ARBML/Ashaar/master/images/ashaar_icon.png' width='150px' alt='logo for Ashaar'/>
 </p>
