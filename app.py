@@ -11,7 +11,7 @@ import json
 TITLE="""<h1 style="font-size: 30px;" align="center">Ashaar: Arabic Poetry Analysis and Generation</h1>"""
 DESCRIPTION = """
 <p align = 'center'>
-<img src='https://raw.githubusercontent.com/ARBML/Ashaar/master/ashaar_icon.png' width='150px' alt='logo for Ashaar'/>
+<img src='https://raw.githubusercontent.com/ARBML/Ashaar/master/images/ashaar_icon.png' width='150px' alt='logo for Ashaar'/>
 </p>
 """
 
@@ -28,18 +28,17 @@ if (SPACE_ID := os.getenv('SPACE_ID')) is not None:
 else:
     DESCRIPTION = DESCRIPTION.replace("either", "")
 
-diac_path =  '/home/g201080740/Arabic_Diacritization'
 
 gpt_tokenizer = AutoTokenizer.from_pretrained('Zaid/ashaar_tokenizerv2')
 model = AutoModelForCausalLM.from_pretrained('Zaid/Ashaar_modelv2')
 
-theme_to_token = json.load(open("theme_tokens.json", "r"))
+theme_to_token = json.load(open("extra/theme_tokens.json", "r"))
 token_to_theme = {t:m for m,t in theme_to_token.items()}
-meter_to_token = json.load(open("meter_tokens.json", "r"))
+meter_to_token = json.load(open("extra/meter_tokens.json", "r"))
 token_to_meter = {t:m for m,t in meter_to_token.items()}
 
-sys.path.append(diac_path)
-analysis = BaitAnalysis()
+analysis = BaitAnalysis(config_yml = "/home/g201080740/Ashaar/Ashaar/config/test.yml", 
+                        pretrained_model= "/home/g201080740/Arabic_Diacritization/log_dir_ashaar")
 meter, theme, qafiyah = "", "", ""
 
 def analyze(poem):

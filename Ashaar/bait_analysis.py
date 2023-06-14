@@ -24,6 +24,7 @@ import traceback
 import sys
 import gdown
 import bohour
+from poetry_diacritizer.predict import DiacritizationTester
 
 empty_analysis = {
     "diacritized": [],
@@ -39,7 +40,8 @@ empty_analysis = {
 
 
 class BaitAnalysis:
-    def __init__(self, use_cbhg=True):
+    def __init__(self, use_cbhg=True, config_yml = "Ashaar/config/test.yml",
+     pretrained_model= "Arabic_Diacritization/log_dir_ashaar"):
 
         self.BOHOUR_PATTERNS = {}
         self.BOHOUR_TAFEELAT = {}
@@ -56,20 +58,10 @@ class BaitAnalysis:
         self.use_cbhg = use_cbhg
         if self.use_cbhg:
             print("load diacritization model ... ")
-            try:
-                from predict import DiacritizationTester
 
-                self.diac_model = DiacritizationTester(
-                    "Ashaar/config/test.yml", "cbhg",  "/home/g201080740/Arabic_Diacritization/log_dir_ashaar"
-                )
-                self.text_encoder = self.diac_model.text_encoder
-            except Exception as e:
-                print(traceback.format_exc())
-                print(
-                    f"{e}. Maybe you should run 'git clone https://github.com/zaidalyafeai/Arabic_Diacritization'?"
-                )
-                raise e
-
+            self.diac_model = DiacritizationTester(config_path = config_yml, model_kind = "cbhg",  model_path=pretrained_model)
+            self.text_encoder = self.diac_model.text_encoder
+        
         print("Exporting the pretrained models ... ")
         url = "https://drive.google.com/uc?id=1P8t7wfjxgLSSdVA9fZ5UYHq9iQ6bkz9G"
         gdown.cached_download(

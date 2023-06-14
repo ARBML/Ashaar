@@ -1,23 +1,22 @@
-accelerate >= 0.12.0
-torch >= 1.3
-datasets >= 1.8.0
-sentencepiece != 0.1.92
 protobuf
 evaluate
-scikit-learn
-git+https://github.com/huggingface/transformers.git
 gradio
-sentence-transformers
-datasets
-git+https://github.com/ARBML/tkseem.git
 tnkeeh
 pyarabic
-git+https://www.github.com/keras-team/keras-contrib.git
-diacritization-evaluation==0.5
-ruamel.yaml==0.16.12
-pyarabic
-git+https://github.com/MagedSaeed/Bohour.git
-gdown==4.6.0
 termcolor
-tensorflow
-matplotlib
+tensorflow==2.12.0
+matplotlib==3.3.3
+gdown==4.6.0
+scikit-learn
+torch >= 1.3
+datasets >= 2.12.0
+accelerate >= 0.12.0
+sentence-transformers
+ruamel.yaml==0.16.12
+sentencepiece != 0.1.92
+diacritization-evaluation==0.5
+tkseem @ git+https://github.com/ARBML/tkseem.git
+bohour @ git+https://github.com/MagedSaeed/Bohour.git
+transformers @ git+https://github.com/huggingface/transformers.git
+poetry_diacritizer @ git+https://github.com/zaidalyafeai/Arabic_Diacritization.git
+# git+https://www.github.com/keras-team/keras-contrib.git
