@@ -21,26 +21,26 @@ Training the character based gpt-2 model. Our model was trained on A100 for arou
 
 ```
 python run_clm.py \
-	    --model_type gpt2 \
-	    --config_overrides="n_layer=10,vocab_size=100" \
-	    --dataset_name Zaid/ashaar_datasetv2 \
-	    --tokenizer_name Zaid/ashaar_tokenizerv2 \
-	    --per_device_train_batch_size 16 \
-	    --per_device_eval_batch_size 4 \
-	    --do_train \
-	    --do_eval \
-	    --num_train_epochs=100 \
-      --eval_steps=500 \
-      --logging_steps=1 \
-      --save_steps=500 \
-      --logging_strategy='steps' \
-      --evaluation_strategy='steps' \
-      --save_strategy='steps' \
-	    --output_dir <output-dir> \
-	    --report_to="wandb" \
-      --overwrite_output_dir \
-	    --push_to_hub \
-	    --hub_model_id=<model-hub-id>
+        --model_type gpt2 \
+        --config_overrides="n_layer=10,vocab_size=100" \
+        --dataset_name Zaid/ashaar_datasetv2 \
+        --tokenizer_name Zaid/ashaar_tokenizerv2 \
+        --per_device_train_batch_size 16 \
+        --per_device_eval_batch_size 4 \
+        --do_train \
+        --do_eval \
+        --num_train_epochs=100 \
+        --eval_steps=500 \
+        --logging_steps=1 \
+        --save_steps=500 \
+        --logging_strategy='steps' \
+        --evaluation_strategy='steps' \
+        --save_strategy='steps' \
+        --output_dir <output-dir> \
+        --report_to="wandb" \
+        --overwrite_output_dir \
+        --push_to_hub \
+        --hub_model_id=<model-hub-id>
 ```
 
 ### Inference 
