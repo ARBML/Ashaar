@@ -11,7 +11,7 @@ import json
 TITLE="""<h1 style="font-size: 30px;" align="center">Ashaar: Arabic Poetry Analysis and Generation</h1>"""
 DESCRIPTION = """
 <p align = 'center'>
-<img src='https://raw.githubusercontent.com/ARBML/Ashaar/master/images/ashaar_icon.png' width='150px' alt='logo for Ashaar'/>
+<img src='https://github.com/ARBML/Ashaar/assets/15667714/b377a124-9403-4ec1-83b8-bd77cd3e6d00' width='150px' alt='logo for Ashaar'/>
 </p>
 """
 
