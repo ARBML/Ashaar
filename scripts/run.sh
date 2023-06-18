@@ -1,8 +1,8 @@
 python run_clm.py \
 	    --model_type gpt2 \
 	    --config_overrides="n_layer=10,vocab_size=100" \
-	    --dataset_name Zaid/ashaar_datasetv2 \
-	    --tokenizer_name Zaid/ashaar_tokenizerv2 \
+	    --dataset_name arbml/Ashaar_dataset \
+	    --tokenizer_name arbml/Ashaar_tokenizer \
 	    --per_device_train_batch_size 16 \
 	    --per_device_eval_batch_size 4 \
 	    --do_train \

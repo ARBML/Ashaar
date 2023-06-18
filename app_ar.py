@@ -8,26 +8,22 @@ from Ashaar.bait_analysis import BaitAnalysis
 import sys
 import json
 
-TITLE="""<h1 style="font-size: 30px;" align="center">Ashaar: Arabic Poetry Analysis and Generation</h1>"""
+TITLE="""<h1 style="font-size: 30px;" align="center">أَشْعــَـار: تحليل وإنشاء الشعر العربي</h1>"""
 DESCRIPTION = """
 <p align = 'center'>
 <img src='https://raw.githubusercontent.com/ARBML/Ashaar/master/images/ashaar_icon.png' width='150px' alt='logo for Ashaar'/>
 </p>
 """
 
-DESCRIPTION +="""
-The demo provides a way to generate analysis for poetry and also complete the poetry. 
-The generative model is a character-based conditional GPT-2 model. The pipeline contains many models for 
-classification, diacritization and conditional generation. Check our [GitHub](https://github.com/ARBML/Ashaar) for more techincal details
-about this work. In the demo we have two basic pipelines. `Analyze` which predicts the meter, era, theme, diacritized text, qafiyah and, arudi style.
-The other module `Generate` which takes the input text, meter, theme and qafiyah to generate the full poem. 
-"""
-if (SPACE_ID := os.getenv('SPACE_ID')) is not None:
-    DESCRIPTION = DESCRIPTION.replace("</p>", " ")
-    DESCRIPTION += f'or <a href="https://huggingface.co/spaces/{SPACE_ID}?duplicate=true"><img style="display: inline; margin-top: 0em; margin-bottom: 0em" src="https://bit.ly/3gLdBN6" alt="Duplicate the Space"/></a> and upgrade to GPU in settings.</p>'
-else:
-    DESCRIPTION = DESCRIPTION.replace("either", "")
+DESCRIPTION +=""" <p dir='rtl'>
+هذا البرنامج يتيح للمستخدم تحليل وإنشاء الشعر العربي.
+يتم إنشاء الشعر بواسطة نموذج GPT تم تدريبه على الحروف العربية. 
+يحتوي البرنامج على نماذج لتصنيف الحقبة الزمنية والعاطفة والبحر و كذلك تشكيل الشعر العربي بالإضافة إلى إكمال الشعر.
+قمنا بتوفير الشفرة البرمجية كلها على 
+<a href ='https://github.com/ARBML/Ashaar'> GitHub</a>.
 
+</p>
+"""
 
 gpt_tokenizer = AutoTokenizer.from_pretrained('arbml/ashaar_tokenizer')
 model = AutoModelForCausalLM.from_pretrained('arbml/Ashaar_model')
@@ -98,32 +94,37 @@ examples = [
 وترفقا فالسمع من أعضائه"""
     ],
 ]
+css = """
+#input-textbox, #output-textbox{
+  direction: RTL;
+}
+"""
 
-with gr.Blocks(theme=gr.themes.Soft()) as demo:
+with gr.Blocks(theme=gr.themes.Soft(), css=css) as demo:
     with gr.Row():
         with gr.Column():
             gr.HTML(TITLE)
-            gr.Markdown(DESCRIPTION)
+            gr.HTML(DESCRIPTION)
 
     with gr.Row():
         with gr.Column():
-            gr.Markdown("Write the input, one verse in each line")
-            inputs = gr.inputs.Textbox(lines=10, label="Input Poem")
+            outputs_2 = gr.Textbox(lines=10, label="القصيدة المنشئة", elem_id="output-textbox")
+
         with gr.Column():
-            gr.Markdown("Output generated poem")
-            outputs_2 = gr.inputs.Textbox(lines=10, label="Generated Poem")
+            inputs = gr.Textbox(lines=10, label="القصيدة المدخلة", elem_id="input-textbox")
+
 
     with gr.Row():
         with gr.Column():
-            analyze_btn = gr.Button("Analyze")
+            generate_btn = gr.Button("إنشاء")
         with gr.Column():
-            generate_btn = gr.Button("Generate")
+            analyze_btn = gr.Button("تحليل")
 
     with gr.Row():
         outputs_1 = gr.HTML()
     
     gr.Examples(examples, inputs)
-    analyze_btn.click(analyze, inputs=inputs, outputs=outputs_1)
     generate_btn.click(generate, inputs = inputs, outputs=outputs_2)
+    analyze_btn.click(analyze, inputs=inputs, outputs=outputs_1)
 
 demo.launch(server_name = "0.0.0.0", share = True, debug = True)

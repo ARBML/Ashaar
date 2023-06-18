@@ -24,8 +24,8 @@ Training the character based gpt-2 model. Our model was trained on A100 for arou
 python run_clm.py \
         --model_type gpt2 \
         --config_overrides="n_layer=10,vocab_size=100" \
-        --dataset_name Zaid/ashaar_datasetv2 \
-        --tokenizer_name Zaid/ashaar_tokenizerv2 \
+        --dataset_name arbml/Ashaar_dataset \
+        --tokenizer_name arbml/ashaar_tokenizer \
         --per_device_train_batch_size 16 \
         --per_device_eval_batch_size 4 \
         --do_train \
@@ -50,8 +50,8 @@ python run_clm.py \
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 prompt = "enter your prompt here"
-gpt_tokenizer = AutoTokenizer.from_pretrained('Zaid/ashaar_tokenizerv2')
-model = AutoModelForCausalLM.from_pretrained('Zaid/Ashaar_modelv2')
+gpt_tokenizer = AutoTokenizer.from_pretrained('arbml/Ashaar_tokenizer')
+model = AutoModelForCausalLM.from_pretrained('arbml/Ashaar_model')
 
 encoded_input = gpt_tokenizer(prompt, return_tensors='pt')
 output = model.generate(**encoded_input, max_length = 512, top_p = 3, do_sample=True)
