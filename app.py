@@ -42,7 +42,7 @@ meter, theme, qafiyah = "", "", ""
 
 def analyze(poem):
     global meter,theme,qafiyah
-    shatrs = poem.split("\n")[1:-1]
+    shatrs = poem.split("\n")
     baits = [' # '.join(shatrs[2*i:2*i+2]) for i in range(len(shatrs)//2)]
     output = analysis.analyze(baits,override_tashkeel=True)
     meter = output['meter']

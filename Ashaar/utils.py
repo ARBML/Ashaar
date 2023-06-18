@@ -320,8 +320,6 @@ def get_highlighted_patterns_html(df):
     td, th {
       border: 1px solid #dddddd;
       padding: 3px;
-      text-align: right; 
-      direction: rtl;
     }
     
     tr:nth-child(even) {
@@ -330,10 +328,10 @@ def get_highlighted_patterns_html(df):
     </style>
     </head>
 
-    <table>
+    <table dir="rtl">
         <thead>
             """
-        + "".join(["<th> %s </th>" % c for c in columns])
+        + "".join(["<th style='text-align:center'> %s </th>" % c for c in columns])
         + """
         </thead>
     <tbody>"""
@@ -342,9 +340,9 @@ def get_highlighted_patterns_html(df):
         row = "<tr>"
         for c in columns:
             if c == "النمط":
-                row += "<td> %s </td>" % process_colors(r[c])
+                row += "<td style='text-align:center'> %s </td>" % process_colors(r[c])
             else:
-                row += "<td> %s </td>" % r[c]
+                row += "<td style='text-align:center'> %s </td>" % r[c]
         row += "</tr>"
         head += row
 
