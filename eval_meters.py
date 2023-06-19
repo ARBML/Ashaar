@@ -57,7 +57,7 @@ def run(args):
     def generate(meter, top_p = 3):
         prompt = f"""{meter_to_token[meter]}""".strip()
         encoded_input = gpt_tokenizer(prompt, return_tensors='pt')
-        output = gpt_model.generate(**encoded_input, max_length = 512, top_p = 3, do_sample=True, pad_token_id=gpt_tokenizer.eos_token_id)
+        output = gpt_model.generate(**encoded_input, max_length = 512, top_p = top_3, do_sample=True, pad_token_id=gpt_tokenizer.eos_token_id)
 
         result = ""
         prev_token = ""
