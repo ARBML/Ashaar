@@ -18,5 +18,5 @@ diacritization-evaluation==0.5
 tkseem @ git+https://github.com/ARBML/tkseem.git
 bohour @ git+https://github.com/MagedSaeed/Bohour.git
 transformers @ git+https://github.com/huggingface/transformers.git
-poetry_diacritizer @ git+https://github.com/arbmlalyafeai/Arabic_Diacritization.git
+poetry_diacritizer @ git+https://github.com/zaidalyafeai/Arabic_Diacritization.git
 # git+https://www.github.com/keras-team/keras-contrib.git
