@@ -245,7 +245,7 @@ def process_and_write(input, output_file_path="/content/baits_input.txt"):
 
 
 import re
-from IPython.display import HTML
+# from IPython.display import HTML
 
 
 def process_colors(pattern):
@@ -258,50 +258,50 @@ def process_colors(pattern):
     return out
 
 
-def display_highlighted_patterns(df):
-    head = (
-        """
-    <html>
-    <head>
-    <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
+# def display_highlighted_patterns(df):
+#     head = (
+#         """
+#     <html>
+#     <head>
+#     <style>
+#     table {
+#       font-family: arial, sans-serif;
+#       border-collapse: collapse;
+#       width: 100%;
+#     }
 
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
+#     td, th {
+#       border: 1px solid #dddddd;
+#       text-align: left;
+#       padding: 8px;
+#     }
 
-    tr:nth-child(even) {
-      background-color: #555555;
-    }
-    </style>
-    </head>
+#     tr:nth-child(even) {
+#       background-color: #555555;
+#     }
+#     </style>
+#     </head>
 
-    <table>
-        <thead>
-            """
-        + "".join(["<th> %s </th>" % c for c in df.columns])
-        + """
-        </thead>
-    <tbody>"""
-    )
-    for i, r in df.iterrows():
-        row = "<tr>"
-        for c in list(df.columns):
-            if c == "النمط":
-                row += "<td> %s </td>" % process_colors(r[c])
-            else:
-                row += "<td> %s </td>" % r[c]
-        row += "</tr>"
-        head += row
+#     <table>
+#         <thead>
+#             """
+#         + "".join(["<th> %s </th>" % c for c in df.columns])
+#         + """
+#         </thead>
+#     <tbody>"""
+#     )
+#     for i, r in df.iterrows():
+#         row = "<tr>"
+#         for c in list(df.columns):
+#             if c == "النمط":
+#                 row += "<td> %s </td>" % process_colors(r[c])
+#             else:
+#                 row += "<td> %s </td>" % r[c]
+#         row += "</tr>"
+#         head += row
 
-    head += "</tbody></table></html>"
-    display(HTML(head))
+#     head += "</tbody></table></html>"
+#     display(HTML(head))
 
 
 def get_highlighted_patterns_html(df):
