@@ -6,12 +6,10 @@ Arabic poetry analysis and generation.
 <img src='https://raw.githubusercontent.com/ARBML/Ashaar/master/images/ashaar_icon.png' width='150px' alt='logo for Ashaar'/>
 </p>
 
-## Demo 
-
-Start the demo using the following command
+## Installation
 
 ```
-gradio app.py
+pip install .
 ```
 
 ## Generation 

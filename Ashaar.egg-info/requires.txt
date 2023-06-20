@@ -1,17 +1,15 @@
 protobuf
 evaluate
 gradio
-datasets
 tnkeeh
 pyarabic
-pyarabic
 termcolor
-tensorflow
-matplotlib
+tensorflow==2.12.0
+matplotlib==3.3.3
 gdown==4.6.0
 scikit-learn
 torch>=1.3
-datasets>=1.8.0
+datasets>=2.12.0
 accelerate>=0.12.0
 sentence-transformers
 ruamel.yaml==0.16.12
@@ -20,3 +18,4 @@ diacritization-evaluation==0.5
 tkseem@ git+https://github.com/ARBML/tkseem.git
 bohour@ git+https://github.com/MagedSaeed/Bohour.git
 transformers@ git+https://github.com/huggingface/transformers.git
+poetry_diacritizer@ git+https://github.com/zaidalyafeai/Arabic_Diacritization.git

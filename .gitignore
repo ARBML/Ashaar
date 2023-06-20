@@ -1,9 +1,8 @@
 checkpoint-*
 *cpython-*
 log_dir_*
-deep-learning-models/*
-deep-learning-models.zip
+*deep-learning-models*
 .ipynb_checkpoints/*
 flagged/*
-__MACOSX/*
 .ipynb_checkpoints/*
+*__MACOSX
