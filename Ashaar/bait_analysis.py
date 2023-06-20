@@ -41,7 +41,7 @@ empty_analysis = {
 
 class BaitAnalysis:
     def __init__(self, abs_path = '.', use_cbhg=True):
-        config_yml = f"{abs_path}/Ashaar/config/test.yml"
+        config_yml = f"{abs_path}/test.yml"
 
         self.BOHOUR_PATTERNS = {}
         self.BOHOUR_TAFEELAT = {}
