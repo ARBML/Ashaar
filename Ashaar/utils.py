@@ -323,7 +323,7 @@ def get_highlighted_patterns_html(df):
     }
     
     tr:nth-child(even) {
-      background-color: #555555;
+      background-color: #b7b7b7;
     }
     </style>
     </head>

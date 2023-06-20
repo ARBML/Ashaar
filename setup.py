@@ -8,7 +8,7 @@ with open('README.md') as readme_file:
     readme = readme_file.read()
 
 setup(name='Ashaar',
-      version='0.0.1',
+      version='0.0.2',
       url='https://github.com/ARBML/Ashaar',
       discription="Arabic poetry analysis and generation library",
       long_description=readme,
