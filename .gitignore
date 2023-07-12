@@ -6,3 +6,4 @@ log_dir_*
 flagged/*
 .ipynb_checkpoints/*
 *__MACOSX
+*.pyc

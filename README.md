@@ -1,5 +1,9 @@
 ## Ashaar
 
+[![Huggingface Space](https://img.shields.io/badge/🤗-Demo%20-yellow.svg)](https://huggingface.co/spaces/arbml/Ashaar)
+[![Colab Notebook](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Z6c0ogy8Yt89UJgT_fAvb0xdKwfBYxK_?usp=sharing)
+[![GitHub](https://img.shields.io/badge/💻-GitHub%20-black.svg)](https://github.com/ARBML/Ashaar)
+
 Arabic poetry analysis and generation. 
 
 <p align = 'center'>
