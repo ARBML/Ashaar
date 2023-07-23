@@ -92,3 +92,12 @@ Sample output
  'theme': ['قصيدة رومنسيه', 'قصيدة شوق', 'قصيدة غزل']}
 ```
 
+## Citation 
+```
+@article{alyafeai2023ashaar,
+  title={Ashaar: Automatic Analysis and Generation of Arabic Poetry Using Deep Learning Approaches},
+  author={Alyafeai, Zaid and Al-Shaibani, Maged S and Ahmed, Moataz},
+  journal={arXiv preprint arXiv:2307.06218},
+  year={2023}
+}
+```
